@@ -17,7 +17,7 @@ document.getElementById("main_form").addEventListener("submit", (event) => {
     event.preventDefault();
 
     const suspect_name = document.getElementById("suspect_name").value.trim();
-    const license_plate_input = document.getElementById("license_plate").value.trim();
+    const license_plate_input = document.getElementById("license_plate").value.trim().toUpperCase();
     const license_plate = license_plate_input || "N/A";
 
     const penalties = document.querySelectorAll(".penalty");
