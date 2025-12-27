@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LSPD</title>
+    <style>
+        body {
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f4f6f8;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 550px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        input {
+            padding: 12px 14px;
+            font-size: 16px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #4f46e5;
+            box-shadow: 0 0 0 3px rgba(79,70,229,0.15);
+        }
+
+        .output-box {
+            min-height: 120px;
+            padding: 12px 14px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            background: #f9fafb;
+            font-size: 16px;
+            white-space: pre-line; /* keeps line breaks */
+        }
+
+        button {
+            margin-top: 5px;
+            padding: 12px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            background: #4f46e5;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #4338ca;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 style="text-align: center;">LSPD</h1>
+
+        <form id="main_form" action="">
+            <input type="text" id="suspect_name" placeholder="Suspect Name">
+            <input type="text" id="license_plate" placeholder="License Plate">
+            <input type="text" id="penalty" placeholder="Penalty">
+            <input type="number" id="penalty_amount" placeholder="Fine">
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <div id="output" class="output-box"></div>
+        <button id="copy_btn" type="button">Copy</button>
+
+    </div>
+
+    <script>
+        document.getElementById("main_form").addEventListener("submit", (event) => {
+            event.preventDefault();
+
+            const suspect_name = document.getElementById("suspect_name").value.trim();
+            const license_plate_input = document.getElementById("license_plate").value.trim();
+            const penalty = document.getElementById("penalty").value.trim();
+            
+            const raw_amount = document.getElementById("penalty_amount").value.trim();
+            const penalty_amount = raw_amount? Number(raw_amount).toLocaleString("en-US") : "";
+
+            const license_plate = license_plate_input !== "" ? license_plate_input : "N/A";
+
+            const format = `
+                Owner Name: ${suspect_name}
+                License Plate: ${license_plate}
+                Reason: ${penalty}
+                Amount of Fine: $${penalty_amount}
+                Proof:
+            `;
+            document.getElementById("output").innerText  = format;
+        });
+
+        document.getElementById("copy_btn").addEventListener("click", () => {
+            const output = document.getElementById("output").innerText;
+            const btn = document.getElementById("copy_btn");
+
+            if (!output.trim()) {
+                btn.textContent = "Noting to copy!";
+
+                setTimeout(() => {
+                    btn.textContent = "Copy";
+                }, 1500);
+
+                return;
+            }
+
+            navigator.clipboard.writeText(output).then(() => {
+                btn.textContent = "Copied ✓";
+
+                setTimeout(() => {
+                    btn.textContent = "Copy";
+                }, 1500);
+            });
+        });
+    </script>
+</body>
+</html>
