@@ -127,6 +127,15 @@ button:active {
     background: #0284c7;
 }
 
+.copy-row {
+    width: 46px;
+    background: #0ea5e9;
+}
+
+.copy-row:hover {
+    background: #0284c7;
+}
+
 .credit {
     margin-top: 18px;
     text-align: center;
