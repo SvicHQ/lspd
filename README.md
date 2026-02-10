@@ -1,2 +1,2 @@
-# lspd
-GrandRP LSPD department
+# GrandRP LEO
+GrandRP Leo log maker / helper

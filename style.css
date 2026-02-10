@@ -104,9 +104,8 @@ button:hover {
     width: 40px;
 }
 
-.add-penalty-btn,
-.clear-btn {
-    width: 120px;
+.flex1 {
+    flex: 1;
 }
 
 .btn-row {

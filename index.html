@@ -22,21 +22,24 @@
             <div id="penalties"></div>
 
             <div class="btn-row">
-                <button type="button" class="add-penalty-btn" id="add_btn">+ Add Penalty</button>
-                <button type="button" class="clear-btn" id="clear_btn">Clear</button>
+                <button type="button" class="flex1" id="add_btn">🧩 Add Penalty</button>
+                <button type="button" class="flex1" id="clear_btn">🧹 Clear</button>
             </div>
 
             <div class="total-box">
                 Total Fine: $<span id="total">0</span>
             </div>
 
-            <button type="submit">Submit</button>
+            <button type="submit">🔄 Submit</button>
 
         </form>
 
         <div id="output" class="output-box"></div>
 
-        <button id="copy_btn">Copy</button>
+        <div class="btn-row">
+            <button class="flex1" id="copy_btn">📑 Copy</button>
+            <button class="flex1" id="send_to_discord">📨 Send to Discord</button>
+        </div>
 
         <p class="credit">
             Developed by <a href="https://bishalqx980.github.io/bishalqx980/">bishalqx980</a>
@@ -45,6 +48,7 @@
     </div>
 
     <script src="./script.js"></script>
+    <script src="./discord.js"></script>
 
 </body>
 </html>
