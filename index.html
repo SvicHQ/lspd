@@ -3,39 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LSPD</title>
+    <title>LEO - Log Helper</title>
     <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
 
     <div class="container">
-        <h1 style="text-align: center;">LSPD</h1>
 
-        <form id="main_form" action="">
-            <input type="text" id="suspect_name" placeholder="Suspect Name">
+        <h1>LEO - Log Helper</h1>
+
+        <form id="main_form">
+
+            <input type="text" id="suspect_name" placeholder="Suspect Name" required>
+
             <input type="text" id="license_plate" placeholder="License Plate" style="text-transform: uppercase;">
 
-            <div id="penalties">
-                <div class="penalty-row">
-                    <input type="text" class="penalty" placeholder="Penalty">
-                    <input type="number" class="amount" placeholder="Fine">
-                    <button type="button" class="add-btn">+</button>
-                    <button type="button" class="copy-row">📋</button>
-                </div>
+            <div id="penalties"></div>
+
+            <div class="btn-row">
+                <button type="button" class="add-penalty-btn" id="add_btn">+ Add Penalty</button>
+                <button type="button" class="clear-btn" id="clear_btn">Clear</button>
+            </div>
+
+            <div class="total-box">
+                Total Fine: $<span id="total">0</span>
             </div>
 
             <button type="submit">Submit</button>
+
         </form>
 
         <div id="output" class="output-box"></div>
-        <button id="copy_btn" type="button">Copy</button>
+
+        <button id="copy_btn">Copy</button>
 
         <p class="credit">
             Developed by <a href="https://bishalqx980.github.io/bishalqx980/">bishalqx980</a>
         </p>
+
     </div>
 
     <script src="./script.js"></script>
+
 </body>
 </html>
